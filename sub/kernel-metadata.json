@@ -1,0 +1,21 @@
+{
+  "id": "yumizzzz/eedi-sub",
+  "title": "eedi-sub",
+  "code_file": "eedi-sub.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_tpu": "false",
+  "enable_internet": "false",
+  "dataset_sources": [
+    "yumizzzz/eedi-codes"
+  ],
+  "competition_sources": [
+    "eedi-mining-misconceptions-in-mathematics"
+  ],
+  "kernel_sources": [
+    "yumizzzz/eedi-deps"
+  ],
+  "model_sources": []
+}

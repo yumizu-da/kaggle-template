@@ -1,0 +1,19 @@
+services:
+  dev:
+    container_name: kaggle-Eedi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    shm_size: '64gb'
+    volumes:
+      - type: bind
+        source: $PWD
+        target: /kaggle/working
+    working_dir: /kaggle/working
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [ gpu ]
+    tty: true

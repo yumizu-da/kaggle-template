@@ -1,0 +1,16 @@
+# Git
+.git
+
+# Distribution / packaging
+env
+dist
+
+# Virtual environment
+.env
+.venv
+
+# user settings
+.ruff_cache
+.mypy_cache
+.pytest_cache
+data

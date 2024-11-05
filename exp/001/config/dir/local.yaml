@@ -1,0 +1,5 @@
+data_dir: /kaggle/working/data
+train_csv_path: ${dir.data_dir}/train.csv
+test_csv_path: ${dir.data_dir}/test.csv
+misconception_csv_path: ${dir.data_dir}/misconception_mapping.csv
+submission_csv_path: ${dir.data_dir}/sample_submission.csv

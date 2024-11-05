@@ -1,0 +1,6 @@
+defaults:
+  - _self_
+  - dir: local
+
+exp_number: base  # 実行時に書き換え
+run_name: base  # 実行時に書き換え
