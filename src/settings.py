@@ -2,15 +2,23 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    KAGGLE_USERNAME: str = "yumizzzz"
-    KAGGLE_API_TOKEN: str = ""
-    KAGGLE_COMPETITION_NAME: str = ""
+    kaggle_username: str = "yumizzzz"
+    kaggle_api_token: str = ""
+    kaggle_competition_name: str = ""
 
     model_config = SettingsConfigDict(env_file=".env")
 
     @property
-    def KAGGLE_KERNEL_SLUG(self) -> str:
-        return f"{self.KAGGLE_COMPETITION_NAME}-deps"
+    def kaggle_kernel_slug(self) -> str:
+        return f"{self.kaggle_competition_name}-deps"
+
+    @property
+    def kaggle_dataset_slug(self) -> str:
+        return f"{self.kaggle_competition_name}-codes"
+
+    @property
+    def kaggle_sub_kernel_slug(self) -> str:
+        return f"{self.kaggle_competition_name}-sub"
 
 
 settings = Settings()

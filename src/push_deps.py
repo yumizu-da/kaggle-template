@@ -3,6 +3,7 @@ import os
 import subprocess
 import tempfile
 import tomllib
+from pathlib import Path
 
 import nbformat
 from nbformat.v4 import new_code_cell, new_notebook
@@ -10,9 +11,11 @@ from packaging.requirements import Requirement
 
 from src.settings import settings
 
+os.environ["KAGGLE_API_TOKEN"] = settings.kaggle_api_token
+
 METADATA_TEMPLATE = {
-    "id": f"{settings.KAGGLE_USERNAME}/{settings.KAGGLE_KERNEL_SLUG}",
-    "title": settings.KAGGLE_KERNEL_SLUG,
+    "id": f"{settings.kaggle_username}/{settings.kaggle_kernel_slug}",
+    "title": settings.kaggle_kernel_slug,
     "code_file": "code.ipynb",
     "language": "python",
     "kernel_type": "notebook",
@@ -54,15 +57,14 @@ def main() -> None:
     with tempfile.TemporaryDirectory() as tmpdir:
         # notebook 作成
         nb = build_notebook(pkgs)
-        with open(os.path.join(tmpdir, "code.ipynb"), "w") as f:
+        with open(Path(tmpdir, "code.ipynb"), "w") as f:
             nbformat.write(nb, f)
 
         # kernel-metadata.json 作成
-        with open(os.path.join(tmpdir, "kernel-metadata.json"), "w") as f:
+        with open(Path(tmpdir, "kernel-metadata.json"), "w") as f:
             json.dump(METADATA_TEMPLATE, f, indent=2)
 
         # 3.Kaggle に push
-        os.environ["KAGGLE_API_TOKEN"] = settings.KAGGLE_API_TOKEN
         subprocess.run(
             ["kaggle", "kernels", "push", "-p", tmpdir],
             check=True,
