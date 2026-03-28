@@ -140,4 +140,3 @@ cython_debug/
 # add
 .ruff_cache/
 *.csv
-*/kaggle.json

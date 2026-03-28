@@ -1,29 +1,66 @@
+[project]
+name = "kaggle-template"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "kaggle>=2.0.0",
+    "nbformat>=5.10.4",
+    "pydantic-settings>=2.13.1",
+]
+
+[dependency-groups]
+kaggle = [
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
 [tool.ruff]
-exclude = [".git", ".mypy_cache", ".ruff_cache", ".venv", "third_party"]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
 line-length = 120
 indent-width = 4
-target-version = "py310"
-
-[tool.ruff.lint]
-fixable = ["ALL"]
-unfixable = []
-select = [
-    "A",  # flake8-builtin
-    "B",  # flake8-bugbear
-    "E",  # pycodestyle error
-    "F",  # Pyflakes
-    "I",  # isort
-    "W",  # pycodestyle warning
-    "PL",  # Pylint
-    "UP",  # pyupgrade
-]
-ignore = [
-    "F401",  # Unused import
-    "PLW2901",  # Useless-suppression
-]
+target-version = "py312"
 
 [tool.ruff.format]
 quote-style = "double"
 line-ending = "auto"
 
+[tool.ruff.lint]
+
 [tool.ruff.lint.isort]
+
+[tool.mypy]
+ignore_missing_imports = true

@@ -28,9 +28,9 @@ docker compose up -d --build
 kaggleAPI経由で`data`ディレクトリにダウンロードします
 
 ```bash
-kaggle competitions download -c eedi-mining-misconceptions-in-mathematics -p data && \
-unzip data/eedi-mining-misconceptions-in-mathematics.zip -d data && \
-rm data/eedi-mining-misconceptions-in-mathematics.zip
+kaggle competitions download -c birdclef-2026 -p data && \
+unzip data/birdclef-2026.zip -d data && \
+rm data/birdclef-2026.zip
 ```
 
 ### 3. 実験コード管理設定（`exp`以下）
