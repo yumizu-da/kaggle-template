@@ -23,11 +23,11 @@ cp .env.sample .env
 ```bash
 KAGGLE_USERNAME=your_username
 KAGGLE_API_TOKEN=your_api_token
-KAGGLE_COMPETITION_NAME=コンペ名
+KAGGLE_COMPETITION_NAME=competition_name
 ```
 
-- `KAGGLE_API_TOKEN`はKaggleページから、Settings → API → Create New Tokenで取得可能
-- `KAGGLE_COMPETITION_NAME`はURLから取得可能（`https://www.kaggle.com/competitions/{KAGGLE_COMPETITION_NAME}/overview`）
+- `KAGGLE_API_TOKEN`はKaggleページから、Settings → API → Generate New Tokenで取得可能
+- `KAGGLE_COMPETITION_NAME`はURLから取得可能（`https://www.kaggle.com/competitions/{KAGGLE_COMPETITION_NAME}`）
 
 ### 2. データセットをローカル環境にダウンロード
 

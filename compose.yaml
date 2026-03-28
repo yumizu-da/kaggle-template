@@ -9,11 +9,17 @@ services:
       - type: bind
         source: $PWD
         target: /kaggle/working
+      - type: volume
+        source: venv
+        target: /kaggle/working/.venv
     working_dir: /kaggle/working
+    tty: true
     deploy:
       resources:
         reservations:
           devices:
             - driver: nvidia
               capabilities: [ gpu ]
-    tty: true
+
+volumes:
+  venv:
