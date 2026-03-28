@@ -11,9 +11,9 @@ dependencies = [
     "kaggle>=2.0.0",
     "nbformat>=5.10.4",
     "pydantic-settings>=2.13.1",
-    "torch==2.1.2+cu121",
-    "torchvision==0.16.2+cu121",
-    "torchaudio==2.1.2+cu121",
+    "torch==2.6.0+cu126",
+    "torchvision==0.21.0+cu126",
+    "torchaudio==2.6.0+cu126",
 ]
 
 [project.optional-dependencies]
