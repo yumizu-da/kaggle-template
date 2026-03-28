@@ -4,15 +4,37 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
+
+# ローカル環境に必要な依存関係を指定
+# torch, torchvision, torchaudio は、RTX 3060 で動作するバージョンを指定
 dependencies = [
     "kaggle>=2.0.0",
     "nbformat>=5.10.4",
     "pydantic-settings>=2.13.1",
+    "torch==2.1.2+cu121",
+    "torchvision==0.16.2+cu121",
+    "torchaudio==2.1.2+cu121",
 ]
 
-[dependency-groups]
+[project.optional-dependencies]
+# 開発環境に必要な依存関係を指定
+dev = [
+    "ruff",
+]
+
+# kaggle notebook で動かすために追加で必要なパッケージ
 kaggle = [
 ]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+torchaudio = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
 
 [build-system]
 requires = ["hatchling"]

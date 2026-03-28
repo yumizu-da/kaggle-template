@@ -1,6 +1,6 @@
 services:
   dev:
-    container_name: kaggle-Eedi
+    container_name: ${KAGGLE_COMPETITION_NAME}_dev
     build:
       context: .
       dockerfile: Dockerfile

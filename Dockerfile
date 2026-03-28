@@ -1,18 +1,11 @@
 # https://github.com/Kaggle/docker-python/releases
-FROM gcr.io/kaggle-gpu-images/python:v150
+ARG PLATFORM=linux/amd64
+FROM --platform=$PLATFORM gcr.io/kaggle-gpu-images/python:latest
 
-# NOTE: RTX3060環境では、用意されているPytorchが動かないので再インストール
-RUN python3 -m pip install --upgrade pip && \
-    pip uninstall torch torchvision -y && \
-    pip install --no-cache-dir \
-    torch==2.1.2+cu121 -f https://download.pytorch.org/whl/cu121/torch \
-    torchvision==0.16.2+cu121 -f https://download.pytorch.org/whl/cu121/torchvision \
-    torchaudio==2.1.2+cu121 -f https://download.pytorch.org/whl/cu121/torchaudio
-
-# その他のライブラリ
-RUN pip install --no-cache-dir \
-    ruff \
-    hydra-core
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
 
 WORKDIR /kaggle/working
 ENV KAGGLE_CONFIG_DIR=/kaggle/working/.kaggle
+
+COPY pyproject.toml uv.lock README.md .
+RUN uv sync

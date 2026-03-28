@@ -141,3 +141,4 @@ cython_debug/
 .ruff_cache/
 *.csv
 *.json
+data/
